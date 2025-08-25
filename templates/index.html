@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stroke prediction</title>
+     <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="Cont">
+        <h1>Formulario para predecir accidentes cerebrovasculares / Form to predict Brain strokes</h1>
+
+        <form id="strokeForm">
+           
+            <div class="content-input">
+                <label for="age" class="input-container-label">Edad / Age:</label>
+                <input type="number" class="input-container-input" id="age" name="age">
+            </div>
+            
+            <div class="content-input">
+                <label for="avg_glucose_level" class="input-container-label">Nivel de glucosa / Glucosa level:</label>
+                <input type="number" class="input-container-input" id="avg_glucose_level" name="avg_glucose_level">
+            </div>
+
+            <div class="content-input">
+                <label for="bmi" class="input-container-label">Índice de masa corporal / Body mass index (kg):</label>
+                <input type="number" class="input-container-input" id="bmi" name="bmi">
+         
+            </div>
+
+            <div class="group-cont">
+            
+                <label>¿Padece de hipertensión? / Do you suffer from hypertension?</label>
+                <div class="radios">
+                    <input type="radio" id="hypertension_si" name="hypertension" value="Si">
+                    <label for="hypertension_si">Sí / Yes</label>
+
+                    <input type="radio" id="hypertension_no" name="hypertension" value="No">
+                    <label for="hypertension_no">No</label>
+                </div>
+
+            </div>
+
+            <div class="group-cont">
+                <!-- Grupo 2: Problemas cardíacos -->
+                <label>¿Padece de problemas cardíacos? / Do you suffer from heart problems?</label>
+                <div class="radios">
+                    <input type="radio" id="heart_disease_si" name="heart_disease" value="Si">
+                    <label for="heart_disease_si">Sí / Yes</label>
+
+                    <input type="radio" id="heart_disease_no" name="heart_disease" value="No">
+                    <label for="heart_disease_no">No</label>
+                </div>
+
+            </div>
+
+            <input type="submit" value="Enviar / Send" class="button">
+        </form>
+
+        <div id="result">
+            <h2 id="riskLevel">Resultado / Result</h2>
+            <p>Probabilidad de stroke / Probability of stroke: <span id="probability">0%</span></p>
+           
+        </div>
+
+    </div>
+    
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

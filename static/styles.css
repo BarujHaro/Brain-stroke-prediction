@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    margin: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background: #3d27b7;
+    background: linear-gradient(90deg,rgba(61, 39, 183, 1) 0%, rgba(158, 87, 199, 1) 50%, rgba(237, 83, 232, 1) 100%);
+}
+
+.Cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(254, 254, 255);
+    margin: 20px;
+    padding: 20px;
+    width: 800px;
+    border-radius: 25px;
+}
+
+h1{
+    color: #281785;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.content-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.input-container-input {
+    color: #281785;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: 2px solid #3d27b7;
+    background-color: transparent;
+    transition: outline-color 500ms;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.input-container-input:focus {
+    outline-color: rgba(237, 83, 232, 1);
+}
+ 
+.input-container-label{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3d27b7;
+    
+}
+
+.button {
+    background: #3d27b7;
+    background: linear-gradient(90deg,rgba(61, 39, 183, 1) 0%, rgba(158, 87, 199, 1) 50%, rgba(237, 83, 232, 1) 100%);
+    outline: 2px solid rgba(237, 83, 232, 1);
+    border: rgba(237, 83, 232, 1);
+    color: white;
+    border-radius: 4px;
+    transition: outline-color 500ms;
+    font-size: 15px;
+    font-weight: bold;
+    width: 250px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    outline: 2px solid #3d27b7;
+    border: 2px;
+}
+
+.group-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px;
+
+}
+
+.group-cont > label:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #3d27b7;
+}
+
+.group-cont input[type="radio"] {
+    accent-color: #3d27b7;
+    cursor: pointer;
+    accent-color: rgba(237, 83, 232, 1);
+    width: 20px;   
+    height: 20px; 
+    margin-right: 8px;
+}
+
+.group-cont label {
+    font-size: 16px;
+    color: #281785;
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.radios {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.radios label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#result {
+    color: #281785;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#result.positive{
+    color: #281785;
+
+}
+#result.negative{
+    color: rgba(237, 83, 232, 1);
+
+}

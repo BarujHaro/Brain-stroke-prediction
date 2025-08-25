@@ -1,0 +1,63 @@
+# 🧠 Predicción de Stroke (Brain Stroke Prediction) con XGBoost + FastAPI
+
+Este proyecto implementa un modelo de **Machine Learning** para predecir la probabilidad de sufrir un **brain stroke (accidente cerebrovascular)** a partir de características clínicas y de salud de un paciente. El backend está desarrollado en **FastAPI** y el modelo ha sido entrenado con **XGBoost**, guardado con **Joblib** y desplegado para realizar predicciones.
+
+---
+
+## 📌 ¿Qué es un Brain Stroke?
+Un **stroke** (accidente cerebrovascular) ocurre cuando el flujo sanguíneo hacia una parte del cerebro se interrumpe o se reduce, privando al tejido cerebral de oxígeno y nutrientes.  
+Si no se trata rápidamente, las células cerebrales comienzan a morir, lo que puede provocar daño cerebral permanente, discapacidad o incluso la muerte.  
+
+La predicción temprana puede ayudar en la prevención y tratamiento oportuno.
+
+---
+
+## 📊 Variables utilizadas
+El modelo fue entrenado con las siguientes variables independientes:
+
+- **age** → Edad del paciente  
+- **hypertension** → Si padece de hipertensión (0 = No, 1 = Sí)  
+- **heart_disease** → Si padece de enfermedad cardíaca (0 = No, 1 = Sí)  
+- **avg_glucose_level** → Nivel promedio de glucosa en sangre  
+- **bmi** → Índice de masa corporal (Body Mass Index)
+
+La variable dependiente es:
+
+- **stroke** → 0 = No, 1 = Sí (indica si el paciente sufrió un stroke)
+
+---
+
+## ⚖️ Balanceo de clases
+Dado que el dataset presentaba un **desbalance de clases**, se aplicó la técnica **SMOTE (Synthetic Minority Over-sampling Technique)** para generar instancias sintéticas de la clase minoritaria, mejorando la capacidad del modelo de identificar correctamente los casos positivos (stroke).
+
+```python
+# Variables independientes (X)
+X = df[['age','hypertension', 'heart_disease', 'avg_glucose_level', 'bmi']].values
+
+# Variable dependiente (y)
+y = df["stroke"].values
+
+# Balanceo de clases con SMOTE
+smote = SMOTE(random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X, y)
+
+Resultado del modelo:
+
+              precision    recall  f1-score   support 
+
+           0       0.95      0.93      0.94       935
+           1       0.94      0.95      0.94       945
+
+    accuracy                           0.94      1880
+   macro avg       0.94      0.94      0.94      1880
+weighted avg       0.94      0.94      0.94      1880
+
+🚀 Tecnologías utilizadas
+
+Python
+FastAPI (para exponer la API REST)
+XGBoost (modelo ML)
+Joblib (para guardar/cargar el modelo)
+SMOTE (imblearn) para balanceo de clases
+
+Dataset obtenido de: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset/data
