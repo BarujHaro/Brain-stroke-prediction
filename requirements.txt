@@ -1,8 +1,8 @@
-fastapi==0.109.2
-uvicorn==0.27.1
-xgboost==3.0.2
+fastapi==0.115.0
+uvicorn==0.30.1
+xgboost==2.0.3
 joblib==1.4.2
-imbalanced-learn==0.13.0
+imbalanced-learn==0.12.3
 pandas==2.1.1
 numpy==1.26.4
-scikit-learn==1.5.2
+scikit-learn==1.5.1
