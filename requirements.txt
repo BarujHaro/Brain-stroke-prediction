@@ -6,3 +6,4 @@ imbalanced-learn
 pandas
 numpy
 scikit-learn
+jinja2
