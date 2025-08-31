@@ -28,7 +28,7 @@ La variable dependiente es:
 ---
 
 ## ⚖️ Balanceo de clases
-Dado que el dataset presentaba un **desbalance de clases**, se aplicó la técnica **SMOTE (Synthetic Minority Over-sampling Technique)** para generar instancias sintéticas de la clase minoritaria, mejorando la capacidad del modelo de identificar correctamente los casos positivos (stroke).
+Dado que el dataset presentaba un **desbalance de clases**, se aplicó la técnica **scale_pos_weight / Escala de pesos por clase**, mejorando la capacidad del modelo de identificar correctamente los casos positivos (stroke).
 
 ```python
 # Variables independientes (X)
@@ -43,14 +43,19 @@ X_resampled, y_resampled = smote.fit_resample(X, y)
 
 Resultado del modelo:
 
-              precision    recall  f1-score   support 
+Matriz de confusión:
+[[1197  216]
+ [  25   35]]
 
-           0       0.95      0.93      0.94       935
-           1       0.94      0.95      0.94       945
+Reporte de clasificación:
+              precision    recall  f1-score   support
 
-    accuracy                           0.94      1880
-   macro avg       0.94      0.94      0.94      1880
-weighted avg       0.94      0.94      0.94      1880
+           0       0.98      0.85      0.91      1413
+           1       0.14      0.58      0.23        60
+
+    accuracy                           0.84      1473
+   macro avg       0.56      0.72      0.57      1473
+weighted avg       0.95      0.84      0.88      1473
 
 🚀 Tecnologías utilizadas
 

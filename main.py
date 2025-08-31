@@ -20,26 +20,18 @@ def load_model():
     print("Cargando modelo...")
     return joblib.load('stroke_prediction_model.pkl')
 
-@lru_cache(maxsize=1)
-def load_scaler():
-    print("Cargando scaler...")
-    return joblib.load('scaler.pkl')
 
 #Prediction function / Función de predicción
 def predict_stroke(age, hypertension, heart_disease, avg_glucose_level, bmi):
     """Función de predicción que carga el modelo y scaler solo cuando se necesita"""
     clf = load_model() #Model
-    sca = load_scaler() #Scaler
     
     # Create array with the input data / Crear array con los datos de entrada
     input_data = np.array([[age, hypertension, heart_disease, avg_glucose_level, bmi]])
     
-    # Scale data / Escalar los datos
-    input_scaled = sca.transform(input_data)
-    
     # Make the prediction / Hacer la predicción
-    prediction = clf.predict(input_scaled)
-    probability = clf.predict_proba(input_scaled)
+    prediction = clf.predict(input_data)
+    probability = clf.predict_proba(input_data)
     
     return {
         "prediction": int(prediction[0]), #0 / 1

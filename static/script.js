@@ -33,16 +33,17 @@ document.getElementById('strokeForm').addEventListener('submit', async function(
         
         if (result.prediction === 1) {
             resultDiv.className = 'result positive';
-            riskLevel.textContent = 'Riesgo Alto de Stroke / High Risk of Stroke';
+            riskLevel.textContent = 'Riesgo de Stroke / Risk of Stroke';
 
         } else {
             resultDiv.className = 'result negative';
-            riskLevel.textContent = 'Riesgo Bajo de Stroke / Low risk of Stroke';
+            riskLevel.textContent = 'No riesgo de Stroke / No risk of Stroke';
             
         }
         
         // Desplazarse al resultado
         resultDiv.scrollIntoView({ behavior: 'smooth' });
+
 
 
     }catch(error){
@@ -52,6 +53,23 @@ document.getElementById('strokeForm').addEventListener('submit', async function(
         // Restaurar el botón
         submitBtn.value = originalText;
         submitBtn.disabled = false;
+
+                setTimeout(() => {
+            // Reiniciar el formulario completo
+            document.getElementById("strokeForm").reset();
+            
+                // Limpiar inputs numéricos
+            document.getElementById("age").value = "";
+            document.getElementById("avg_glucose_level").value = "";
+            document.getElementById("bmi").value = "";
+            
+            // Deseleccionar radio buttons
+            document.getElementById("hypertension_si").checked = false;
+            document.getElementById("hypertension_no").checked = false;
+            document.getElementById("heart_disease_si").checked = false;
+            document.getElementById("heart_disease_no").checked = false;
+            
+        }, 5000);
     }
 
 
