@@ -37,10 +37,6 @@ X = df[['age','hypertension', 'heart_disease', 'avg_glucose_level', 'bmi']].valu
 # Variable dependiente (y)
 y = df["stroke"].values
 
-# Balanceo de clases con SMOTE
-smote = SMOTE(random_state=42)
-X_resampled, y_resampled = smote.fit_resample(X, y)
-
 Resultado del modelo:
 
 Matriz de confusión:
